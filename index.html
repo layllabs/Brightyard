@@ -260,11 +260,9 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
 </footer>
 
 <script>
-// ─── WEB3FORMS SETUP ───────────────────────────────────────────
-// 1. Go to web3forms.com → enter joaquin@brightyard.la → Create Access Key
-// 2. Check your inbox — they email you the key instantly
-// 3. Replace YOUR_ACCESS_KEY below with it. That's the whole setup.
-var WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY';
+// ─── WEB3FORMS ─────────────────────────────────────────────────
+// Submissions are emailed to joaquin@brightyard.la via this key.
+var WEB3FORMS_ACCESS_KEY = '81fef90b-c122-496c-98d8-d230b696a480';
 // ───────────────────────────────────────────────────────────────
 
 document.getElementById('sendBtn').addEventListener('click', function(){
@@ -288,7 +286,7 @@ document.getElementById('sendBtn').addEventListener('click', function(){
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-      access_key: 81fef90b-c122-496c-98d8-d230b696a480,
+      access_key: WEB3FORMS_ACCESS_KEY,
       subject: 'New Brightyard inquiry — ' + type + (addr ? ' · ' + addr : ''),
       from_name: 'Brightyard Website',
       name: name,
@@ -314,7 +312,7 @@ document.getElementById('sendBtn').addEventListener('click', function(){
   })
   .catch(function(){
     btn.disabled = false;
-    btn.textContent = 'Submit';
+    btn.textContent = 'Request a call';
     note.innerHTML = 'Something went wrong — email us directly at ' +
       '<a href="mailto:joaquin@brightyard.la" style="color:var(--gold)">joaquin@brightyard.la</a>';
   });
