@@ -154,7 +154,7 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
     <div class="ruled">
       <div class="tagline">Year-round care and design</div>
       <h1>Landscaping that never takes a season off.</h1>
-      <p>Brightyard keeps residential and commercial properties looking their best twelve months a year — dependable maintenance, thorough cleanups, and thoughtful improvements.</p>
+      <p>Brightyard keeps residential and commercial properties looking their best twelve months a year — dependable maintenance, thorough cleanups, and thoughtful improvements, all from one number that always answers.</p>
       <a class="btn" href="#contact">Request a call</a>
       <p class="sub">Insured · Serving the San Fernando Valley &amp; Ventura County</p>
     </div>
@@ -237,9 +237,10 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
         <label for="f-msg">What does the property need?</label>
         <textarea id="f-msg" placeholder="A little about the yard or grounds, and what you're looking for"></textarea>
       </div>
+      <input type="checkbox" id="f-botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="form-actions">
         <button class="btn gold" id="sendBtn" type="button">Request a call</button>
-        <span class="form-note" id="formNote">Opens a pre-filled email to joaquin@brightyard.la</span>
+        <span class="form-note" id="formNote">Goes straight to Joaquin — usually a same-day reply</span>
       </div>
     </div>
 
@@ -259,26 +260,64 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
 </footer>
 
 <script>
+// ─── WEB3FORMS SETUP ───────────────────────────────────────────
+// 1. Go to web3forms.com → enter joaquin@brightyard.la → Create Access Key
+// 2. Check your inbox — they email you the key instantly
+// 3. Replace YOUR_ACCESS_KEY below with it. That's the whole setup.
+var WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY';
+// ───────────────────────────────────────────────────────────────
+
 document.getElementById('sendBtn').addEventListener('click', function(){
+  var btn = this;
+  var note = document.getElementById('formNote');
   var v = function(id){ return document.getElementById(id).value.trim(); };
   var name = v('f-name'), phone = v('f-phone'), email = v('f-email'),
       type = document.getElementById('f-type').value,
       addr = v('f-address'), msg = v('f-msg');
 
   if(!name || (!phone && !email)){
-    document.getElementById('formNote').textContent = 'Add your name and a phone or email so we can reach you.';
+    note.textContent = 'Add your name and a phone or email so we can reach you.';
     return;
   }
-  var subject = 'New inquiry — ' + type + (addr ? ' · ' + addr : '');
-  var body =
-    'Name: ' + name + '\n' +
-    'Phone: ' + (phone || '—') + '\n' +
-    'Email: ' + (email || '—') + '\n' +
-    'Property type: ' + type + '\n' +
-    'Address / city: ' + (addr || '—') + '\n\n' +
-    'Details:\n' + (msg || '—');
-  window.location.href = 'mailto:joaquin@brightyard.la?subject=' +
-    encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  note.textContent = '';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      access_key: 81fef90b-c122-496c-98d8-d230b696a480,
+      subject: 'New Brightyard inquiry — ' + type + (addr ? ' · ' + addr : ''),
+      from_name: 'Brightyard Website',
+      name: name,
+      phone: phone || '—',
+      email: email || '—',
+      property_type: type,
+      address: addr || '—',
+      details: msg || '—',
+      botcheck: document.getElementById('f-botcheck').checked
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    if(data.success){
+      document.getElementById('leadForm').innerHTML =
+        '<div class="field full" style="text-align:center;padding:28px 0">' +
+        '<h3 style="font-family:\'Fraunces\',serif;font-size:24px;color:var(--gold);margin-bottom:10px">Got it — talk soon.</h3>' +
+        '<p style="color:rgba(253,251,245,.8);font-size:16px">Thanks, ' + name.split(' ')[0] +
+        '. Joaquin will reach out shortly to set up a call.</p></div>';
+    } else {
+      throw new Error('send failed');
+    }
+  })
+  .catch(function(){
+    btn.disabled = false;
+    btn.textContent = 'Request a call';
+    note.innerHTML = 'Something went wrong — email us directly at ' +
+      '<a href="mailto:joaquin@brightyard.la" style="color:var(--gold)">joaquin@brightyard.la</a>';
+  });
 });
 </script>
 </body>
