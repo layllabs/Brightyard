@@ -47,4 +47,286 @@ header{padding:26px 0;border-bottom:1px solid var(--line)}
 .bar a.phone{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;text-decoration:none;
   color:var(--paper);background:var(--green);padding:9px 16px;border-radius:999px;transition:background .15s}
 .bar a.phone:hover{background:var(--green-deep)}
-@media(max-width:560px){.bar
+@media(max-width:560px){.bar a.phone{font-size:13px;padding:8px 13px}}
+
+/* ---------- hero ---------- */
+.hero{padding:84px 0 72px}
+.hero .tagline{
+  font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+  font-size:19px;color:var(--green);margin-bottom:18px;
+}
+.hero h1{font-size:clamp(34px,5vw,50px);margin-bottom:22px;max-width:20ch}
+.hero p{font-size:18px;color:var(--muted);max-width:52ch;margin-bottom:32px}
+.btn{
+  display:inline-block;background:var(--green);color:var(--paper);
+  font-weight:600;font-size:16px;text-decoration:none;
+  padding:15px 30px;border-radius:999px;border:none;cursor:pointer;
+  transition:background .15s ease, transform .15s ease;
+}
+.btn:hover{background:var(--green-deep);transform:translateY(-1px)}
+.hero .sub{font-size:14px;color:var(--muted);margin-top:18px}
+.sun{display:inline-block;vertical-align:-2px;margin-right:7px}
+
+/* ---------- sections ---------- */
+section{padding:60px 0;border-top:1px solid var(--line)}
+.eyebrow{
+  font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:12px;
+}
+section h2{font-size:clamp(25px,3.4vw,32px);margin-bottom:14px}
+section > .wrap > p.intro{color:var(--muted);max-width:56ch;margin-bottom:34px}
+
+/* services — two quiet columns, no cards, no prices */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+@media(max-width:640px){.services{grid-template-columns:1fr;gap:34px}}
+.svc h3{font-size:20px;margin-bottom:10px}
+.svc ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:15.5px}
+.svc ul li{padding-left:20px;position:relative;color:var(--ink)}
+.svc ul li::before{
+  content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;
+  background:var(--gold);
+}
+.svc p{font-size:14.5px;color:var(--muted);margin-bottom:12px}
+
+/* area */
+.area p{font-size:16.5px;max-width:56ch;color:var(--ink)}
+.area strong{color:var(--green-deep)}
+
+/* ---------- lead form ---------- */
+.lead{background:var(--green-deep);color:var(--paper);border-top:none}
+.lead .eyebrow{color:var(--gold)}
+.lead h2{color:var(--paper)}
+.lead p.intro{color:rgba(253,251,245,.75);max-width:52ch;margin-bottom:34px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:640px){.form{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:13px;font-weight:600;letter-spacing:.04em;color:rgba(253,251,245,.85)}
+.field input,.field select,.field textarea{
+  font-family:'Archivo',sans-serif;font-size:15.5px;color:var(--ink);
+  background:var(--paper);border:none;border-radius:9px;
+  padding:13px 15px;width:100%;
+}
+.field textarea{resize:vertical;min-height:104px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid var(--gold)}
+.form-actions{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px}
+.btn.gold{background:var(--gold);color:var(--green-deep)}
+.btn.gold:hover{background:#F3C878}
+.form-note{font-size:13.5px;color:rgba(253,251,245,.6)}
+.lead .alt{
+  margin-top:34px;padding-top:24px;border-top:1px solid rgba(253,251,245,.18);
+  font-size:15px;color:rgba(253,251,245,.8);
+}
+.lead .alt a{color:var(--gold);font-weight:600;text-decoration-color:rgba(233,166,60,.5);text-underline-offset:4px}
+
+/* footer */
+footer{padding:36px 0;border-top:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline;font-size:14px;color:var(--muted)}
+.foot .name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--green)}
+.foot .desc{font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-left:8px}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="lockup" href="#top" aria-label="Brightyard Landscaping home">
+      <span class="name">Brightyard</span>
+      <span class="desc">Landscaping</span>
+    </a>
+    <a class="phone" id="contact-btn" href="sms:+17472394613?&amp;body=Hi%20Joaquin%2C%20I%27d%20like%20a%20quote%20for%20my%20property%20at%20">
+      <svg class="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="5" fill="#E9A63C"/>
+        <g stroke="#E9A63C" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1.5" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="22.5"/>
+          <line x1="1.5" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="22.5" y2="12"/>
+          <line x1="4.6" y1="4.6" x2="6.7" y2="6.7"/><line x1="17.3" y1="17.3" x2="19.4" y2="19.4"/>
+          <line x1="4.6" y1="19.4" x2="6.7" y2="17.3"/><line x1="17.3" y1="6.7" x2="19.4" y2="4.6"/>
+        </g>
+      </svg><span>Text or call</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="wrap">
+    <div class="ruled">
+      <div class="tagline">Year-round care and design</div>
+      <h1>Landscaping that never takes a season off.</h1>
+      <p>Brightyard keeps residential and commercial properties looking their best twelve months a year — dependable maintenance, thorough cleanups, and thoughtful improvements, all from one number that always answers.</p>
+      <a class="btn" href="#contact">Request a call</a>
+      <p class="sub">Insured · Serving the San Fernando Valley &amp; Ventura County</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">What we do</div>
+    <h2>Two kinds of properties. One standard of care.</h2>
+    <p class="intro">Every property gets the same treatment: clean edges, tidy finishes, clear communication, and a schedule you never have to chase.</p>
+    <div class="services">
+      <div class="svc">
+        <h3>Residential</h3>
+        <p>Homes and yards, kept consistently sharp.</p>
+        <ul>
+          <li>Weekly &amp; biweekly maintenance</li>
+          <li>Full property cleanups</li>
+          <li>Tree &amp; shrub shaping</li>
+          <li>Seasonal refreshes &amp; haul-away</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <h3>Commercial</h3>
+        <p>Offices, retail, and managed properties — with the paperwork handled.</p>
+        <ul>
+          <li>Scheduled grounds maintenance</li>
+          <li>Common-area &amp; frontage upkeep</li>
+          <li>Property turnovers &amp; cleanups</li>
+          <li>COI available on request</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AREA ============ -->
+<section class="area">
+  <div class="wrap">
+    <div class="eyebrow">Where we work</div>
+    <h2>Close to home, on purpose.</h2>
+    <p><strong>San Fernando Valley and Ventura County.</strong> Local by design, so we're never far away.</p>
+  </div>
+</section>
+
+<!-- ============ LEAD FORM ============ -->
+<section class="lead" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Get started</div>
+    <h2>Tell us about your property.</h2>
+    <p class="intro">Share a few details and Joaquin will reach out to schedule a call — usually the same day.</p>
+
+    <div class="form" id="leadForm">
+      <div class="field">
+        <label for="f-name">Name</label>
+        <input id="f-name" type="text" autocomplete="name" placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="f-phone">Phone</label>
+        <input id="f-phone" type="tel" autocomplete="tel" placeholder="(818) 555-0100">
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" type="email" autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="f-type">Property type</label>
+        <select id="f-type">
+          <option>Residential</option>
+          <option>Commercial</option>
+          <option>Multiple properties</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="f-address">Property address or city</label>
+        <input id="f-address" type="text" placeholder="Street address, or just the city">
+      </div>
+      <div class="field full">
+        <label for="f-msg">What does the property need?</label>
+        <textarea id="f-msg" placeholder="A little about the yard or grounds, and what you're looking for"></textarea>
+      </div>
+      <input type="checkbox" id="f-botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-actions">
+        <button class="btn gold" id="sendBtn" type="button">Request a call</button>
+        <span class="form-note" id="formNote"></span>
+      </div>
+    </div>
+
+    <div class="alt">
+      Prefer to reach out directly? Email <a href="mailto:joaquin@brightyard.la">joaquin@brightyard.la</a> and we'll set up a time to talk.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span class="name">Brightyard</span><span class="desc">Landscaping</span></div>
+    <div>© 2026 Brightyard · brightyard.la · Serving the San Fernando Valley &amp; Ventura County</div>
+  </div>
+</footer>
+
+<script>
+// ─── WEB3FORMS ─────────────────────────────────────────────────
+// Submissions are emailed to joaquin@brightyard.la via this key.
+var WEB3FORMS_ACCESS_KEY = '81fef90b-c122-496c-98d8-d230b696a480';
+// ───────────────────────────────────────────────────────────────
+
+document.getElementById('sendBtn').addEventListener('click', function(){
+  var btn = this;
+  var note = document.getElementById('formNote');
+  var v = function(id){ return document.getElementById(id).value.trim(); };
+  var name = v('f-name'), phone = v('f-phone'), email = v('f-email'),
+      type = document.getElementById('f-type').value,
+      addr = v('f-address'), msg = v('f-msg');
+
+  if(!name || (!phone && !email)){
+    note.textContent = 'Add your name and a phone or email so we can reach you.';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  note.textContent = '';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: 'New Brightyard inquiry — ' + type + (addr ? ' · ' + addr : ''),
+      from_name: 'Brightyard Website',
+      name: name,
+      phone: phone || '—',
+      email: email || '—',
+      property_type: type,
+      address: addr || '—',
+      details: msg || '—',
+      botcheck: document.getElementById('f-botcheck').checked
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    if(data.success){
+      document.getElementById('leadForm').innerHTML =
+        '<div class="field full" style="text-align:center;padding:28px 0">' +
+        '<h3 style="font-family:\'Fraunces\',serif;font-size:24px;color:var(--gold);margin-bottom:10px">Got it — talk soon.</h3>' +
+        '<p style="color:rgba(253,251,245,.8);font-size:16px">Thanks, ' + name.split(' ')[0] +
+        '. Joaquin will reach out shortly to set up a call.</p></div>';
+    } else {
+      throw new Error('send failed');
+    }
+  })
+  .catch(function(){
+    btn.disabled = false;
+    btn.textContent = 'Submit';
+    note.innerHTML = 'Something went wrong — email us directly at ' +
+      '<a href="mailto:joaquin@brightyard.la" style="color:var(--gold)">joaquin@brightyard.la</a>';
+  });
+});
+</script>
+<script>
+(function(){
+  var b=document.getElementById('contact-btn');
+  if(b && !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){ b.href='tel:+17472394613'; }
+})();
+</script>
+</body>
+</html>
