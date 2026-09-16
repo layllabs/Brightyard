@@ -41,9 +41,10 @@ header{padding:26px 0;border-bottom:1px solid var(--line)}
 .lockup{display:flex;align-items:baseline;gap:10px;text-decoration:none;flex-wrap:wrap}
 .lockup .name{font-family:'Fraunces',serif;font-weight:600;font-size:26px;color:var(--green)}
 .lockup .desc{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-.bar a.phone{font-weight:600;font-size:15px;text-decoration:none;color:var(--green-deep)}
-.bar a.phone:hover{color:var(--green)}
-@media(max-width:560px){.bar a.phone span{display:none}}
+.bar a.phone{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;text-decoration:none;
+  color:var(--paper);background:var(--green);padding:9px 16px;border-radius:999px;transition:background .15s}
+.bar a.phone:hover{background:var(--green-deep)}
+@media(max-width:560px){.bar a.phone{font-size:13px;padding:8px 13px}}
 
 /* ---------- hero ---------- */
 .hero{padding:84px 0 72px}
@@ -132,7 +133,7 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
       <span class="name">Brightyard</span>
       <span class="desc">Landscaping</span>
     </a>
-    <a class="phone" href="mailto:joaquin@brightyard.la">
+    <a class="phone" id="contact-btn" href="sms:+17472394613?&amp;body=Hi%20Joaquin%2C%20I%27d%20like%20a%20quote%20for%20my%20property%20at%20">
       <svg class="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <circle cx="12" cy="12" r="5" fill="#E9A63C"/>
         <g stroke="#E9A63C" stroke-width="2" stroke-linecap="round">
@@ -141,7 +142,7 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
           <line x1="4.6" y1="4.6" x2="6.7" y2="6.7"/><line x1="17.3" y1="17.3" x2="19.4" y2="19.4"/>
           <line x1="4.6" y1="19.4" x2="6.7" y2="17.3"/><line x1="17.3" y1="6.7" x2="19.4" y2="4.6"/>
         </g>
-      </svg><span>joaquin@brightyard.la</span>
+      </svg><span>Text or call</span>
     </a>
   </div>
 </header>
@@ -317,6 +318,12 @@ document.getElementById('sendBtn').addEventListener('click', function(){
       '<a href="mailto:joaquin@brightyard.la" style="color:var(--gold)">joaquin@brightyard.la</a>';
   });
 });
+</script>
+<script>
+(function(){
+  var b=document.getElementById('contact-btn');
+  if(b && !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){ b.href='tel:+17472394613'; }
+})();
 </script>
 </body>
 </html>
