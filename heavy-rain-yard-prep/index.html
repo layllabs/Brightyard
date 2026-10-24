@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VN1TL5M18G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VN1TL5M18G');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="/favicon-32.png?v=2" type="image/png" sizes="32x32">
@@ -15,7 +24,7 @@
 <meta property="og:title" content="Getting your yard ready for heavy rain">
 <meta property="og:description" content="Before, during, and after heavy rain in the Valley: shut off sprinklers, clear drains, protect slopes, check trees, and care for soaked clay soil.">
 <meta property="og:url" content="https://brightyard.la/heavy-rain-yard-prep/">
-<meta property="article:modified_time" content="2026-10-21">
+<meta property="article:modified_time" content="2026-10-23">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,7 +116,7 @@
    "headline": "Getting your yard ready for heavy rain",
    "description": "How to get a San Fernando Valley yard ready for heavy rain: sprinklers, gutters and drains, slopes and free sandbags, trees in wet soil and wind, and what to do after the storm.",
    "datePublished": "2026-10-21",
-   "dateModified": "2026-10-21",
+   "dateModified": "2026-10-23",
    "inLanguage": "en-US",
    "author": {
     "@type": "Person",
@@ -398,17 +407,12 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
       <div class="tagline">A storm guide for Valley homeowners</div>
       <h1>Getting your yard ready for heavy rain</h1>
       <p class="lede">Valley yards spend most of the year dry, so a big storm finds every clogged drain, bare slope, and low spot at once. Here's what to do before, during, and after heavy rain to protect your plants, your slopes, and your house.</p>
-      <p class="byline">By <strong>Joaquin, owner of Brightyard</strong> · Last reviewed <time datetime="2026-10-21">October 21, 2026</time></p>
+      <p class="byline">By <strong>Joaquin, owner of Brightyard</strong> · Last reviewed <time datetime="2026-10-23">October 23, 2026</time></p>
     </div>
   </div>
 </div>
 
 <div class="wrap">
-  <div class="note storm" id="this-week">
-    <span class="label">This week's storm · updated October 21, 2026</span>
-    <p>The National Weather Service expects rain to build Wednesday, October 21, with the heaviest showers Wednesday night into Thursday morning. Most areas are forecast to get 1 to 1.5 inches, with 2 to 3 inches possible on foothills and slopes and up to 3 inches in the Santa Monica Mountains, where a flood watch covers parts of Malibu, Pacific Palisades, and the mountains through Thursday afternoon. Thunderstorms could bring short, heavy downpours.</p>
-    <p>Friday turns dry with gusty Santa Ana winds. Wind on freshly soaked soil is when trees are most likely to come down, so <a href="#trees">check your trees</a> before then. For the latest, check the <a href="https://www.weather.gov/lox/" rel="noopener">National Weather Service in Los Angeles</a>.</p>
-  </div>
 
   <div class="tldr" id="short-version">
     <h2>The short version</h2>
@@ -618,7 +622,7 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
 <footer>
   <div class="wrap foot">
     <div><span class="name">Brightyard</span><span class="desc">Landscaping</span></div>
-    <div>© 2026 Brightyard · <a href="/" style="color:inherit">brightyard.la</a> · Serving the San Fernando Valley &amp; Ventura County</div>
+    <div>© 2026 Brightyard · <a href="/" style="color:inherit">brightyard.la</a> · Serving the San Fernando Valley &amp; Ventura County · <a href="/privacy/" style="color:inherit">Privacy</a></div>
   </div>
 </footer>
 
@@ -630,6 +634,13 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
     if(b){ b.href='tel:+17472394613'; }
   });
 })();
+</script>
+<script>
+// Count text/call/email taps as contact clicks in Google Analytics (no personal info is sent)
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('a[href^="sms:"], a[href^="tel:"], a[href^="mailto:"]');
+  if (a && window.gtag) { gtag('event', 'contact_click', { method: a.getAttribute('href').split(':')[0] }); }
+});
 </script>
 </body>
 </html>

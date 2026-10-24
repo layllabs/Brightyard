@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VN1TL5M18G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VN1TL5M18G');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="/favicon-32.png?v=2" type="image/png" sizes="32x32">
@@ -806,7 +815,7 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
 <footer>
   <div class="wrap foot">
     <div><span class="name">Brightyard</span><span class="desc">Landscaping</span></div>
-    <div>© 2026 Brightyard · <a href="/" style="color:inherit">brightyard.la</a> · Serving the San Fernando Valley &amp; Ventura County</div>
+    <div>© 2026 Brightyard · <a href="/" style="color:inherit">brightyard.la</a> · Serving the San Fernando Valley &amp; Ventura County · <a href="/privacy/" style="color:inherit">Privacy</a></div>
   </div>
 </footer>
 
@@ -818,6 +827,13 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
     if(b){ b.href='tel:+17472394613'; }
   });
 })();
+</script>
+<script>
+// Count text/call/email taps as contact clicks in Google Analytics (no personal info is sent)
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('a[href^="sms:"], a[href^="tel:"], a[href^="mailto:"]');
+  if (a && window.gtag) { gtag('event', 'contact_click', { method: a.getAttribute('href').split(':')[0] }); }
+});
 </script>
 </body>
 </html>
